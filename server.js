@@ -4,6 +4,8 @@ const connectDB = require("./config/db"); // connectDB modulini to‘g‘ri yo�
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+
+
 // Connect to MongoDB
 connectDB();
 
