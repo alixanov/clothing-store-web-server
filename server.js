@@ -22,3 +22,4 @@ app.use("/api", require("./routes/soldRouter"));
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
