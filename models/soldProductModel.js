@@ -8,6 +8,7 @@ const soldProductSchema = new Schema(
     address: { type: String },
     totaldebt: { type: String },
     paymentAmount: { type: Number, required: true },
+    currency: { type: String, required: true }, // Added currency field
     totalProduct: [
       {
         name: { type: String, required: true },

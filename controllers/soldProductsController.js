@@ -3,7 +3,6 @@ const SoldProduct = require("../models/soldProductModel");
 exports.sellProduct = async (req, res) => {
   try {
     const soldProduct = new SoldProduct(req.body);
-    // Saqlashdan oldin malumotlarni tekshirish yoki o'zgartirish kerak bo'lsa, bu yerda qilishingiz mumkin
     await soldProduct.save();
     res.status(201).json({ message: "Mahsulot sotildi", data: soldProduct });
   } catch (error) {
@@ -21,7 +20,6 @@ exports.getProducts = async (req, res) => {
   }
 };
 
-// To'lovni amalga oshirish
 exports.processPayment = async (req, res) => {
   const { userId, amount } = req.body;
 
@@ -33,12 +31,10 @@ exports.processPayment = async (req, res) => {
     soldProduct.paymentAmount -= Number(amount);
 
     await soldProduct.save();
-    res
-      .status(200)
-      .json({
-        message: "To'lov muvaffaqiyatli amalga oshirildi.",
-        data: soldProduct,
-      });
+    res.status(200).json({
+      message: "To'lov muvaffaqiyatli amalga oshirildi.",
+      data: soldProduct,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
